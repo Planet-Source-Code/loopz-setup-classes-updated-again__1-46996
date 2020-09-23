@@ -1,0 +1,9 @@
+I introduced a little use of variables into the scripting language supported.
+	
+	It just gives you the ability to get an input and save it to a variable that will be used later.
+
+Variables are saved in this format : VARNAME==VARVALUE
+
+You can call a variable by using var[varaiblename] into a string.
+You can get an input by writing GetInput Your Name__Hi!!__variable1
+Then you can display it with MsgBox Your Name is var[variable1]!__Hi!!__Info
