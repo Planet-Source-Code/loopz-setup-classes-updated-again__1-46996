@@ -1,0 +1,44 @@
+Scripting Language Reference
+
+
+Shell File.exe Hide|Normal|Max
+	Run a file in hidden,normal or maximized mode
+
+
+MsgBox Text__Title__Info|Exclamation|Critical|Question
+	Display a messagebox
+
+FileCopy Original__Destination
+	Copy a file from a path to another (supported variables : var[desktop|windows|system|autoexec|programs|program_files|currentdir]
+
+
+ShellAndWait File.exe
+	Run a file and wait for it to finish
+
+ShutDown
+
+Reboot
+
+UnRAR RARFile__Destination__Password
+	Unpack a rar file (using RarLabs' unrar dll -> get it @ www.rarlabs.com)
+
+CreateLink OriginalFile.exe__LinkFile.lnk
+	Create a link to a file
+
+FTPconnect Server User Password
+	Connect to an FTP server
+
+FTPdisconnect
+	Disconnect from the FTP server
+
+FTPput LocalFile__RemoteFile
+	Put a file into the FTP
+
+FTPget LocalDirectory__RemoteFile
+	Get a file from the FTP
+
+GetInput Text__Title__TargetVariable
+	Input a variant into a variable (see Variables Scripting Help file)
+
+ClearVariables
+	Clear variables' list

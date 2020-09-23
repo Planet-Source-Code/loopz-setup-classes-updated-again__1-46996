@@ -1,0 +1,59 @@
+New Release! 18-07-2003
+
+- Added a new little program to register DLL's and OCX's (You must put it with regsvr32.exe - you can find it in C:\windows\system32)
+- Now you just need MSVBVM600.DLL to run setup!
+- C++ Shell to run batch files hidden!
+
+Let's explain:
+
+Now...no way a vb6 app can run without runtime files but...
+To run the DLL-OCX Rsv (register server), you just need to put it with MSVBVM600.DLL.
+So, let's put MSVBVM600.DLL, RSV.EXE, REGSVR32.EXE and the other files you may need (ocx's...) in a separate directory, called "RES"
+under the main setup directory. So we'll have
+
+
+SETUP
+   setup.exe
+   script.txt
+   RES
+      msvbvm600.dll
+      rsv.exe
+      regsvr32.exe
+      other files...
+
+Now, let's also add a file called REG.BAT to SETUP dir. Add also the given C++ shell (ShellExec.exe)
+
+Let's see:
+we can set the reg.bat file to be
+
+[code]
+@echo off
+@cd res
+regsvr32 -s msvbvm60.dll
+rsv >nul
+cd..
+cls
+Setup.exe
+exit
+[/code]
+
+The situation is
+
+SETUP
+   setup.exe
+   script.txt (may put it into res...it's up to you :D)
+   shellexec.exe
+   reg.bat
+   RES
+      msvbvm600.dll
+      rsv.exe
+      regsvr32.exe
+      other files..
+
+So: we can run ShellExec.exe -> it'll open reg.bat, but nobody will see it ;)
+Reg.bat will register the needed dll, then let rsv.exe do the rest.
+Now we're ready. We can run Setup.exe from the main directory!
+
+No dll or ocx needs to be installed on the pc before running the program...it'll do everyting!
+
+Bye! -loopz
